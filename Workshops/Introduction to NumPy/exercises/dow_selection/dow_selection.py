@@ -70,7 +70,6 @@ print(indices)
 # b. Now over-plot this plot with a 'red dot' marker for every
 #    day where the volume was greater than 5.5 billion.
 row_count = dow.shape[0]
-x = range(0, row_count)
-plot(x, dow[:, ADJ_CLOSE])
+plot(dow[:, ADJ_CLOSE])
 plot(indices, dow[:, ADJ_CLOSE][indices], "ro")
 show()
