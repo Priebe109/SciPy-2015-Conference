@@ -54,14 +54,23 @@ dow = loadtxt('dow.csv', delimiter=',')
 
 # 1. Create a "mask" array that indicates which rows have a volume
 #    greater than 5.5 billion.
-
+mask = dow[:, VOLUME] > 5.5e9
 
 # 2. How many are there?  (hint: use sum).
+count = sum(mask)
+print(count)
 
 # 3. Find the index of every row (or day) where the volume is greater
 #    than 5.5 billion. hint: look at the where() command.
+indices = where(mask)[0]
+print(indices)
 
 # BONUS:
 # a. Plot the adjusted close for EVERY day in 2008.
 # b. Now over-plot this plot with a 'red dot' marker for every
 #    day where the volume was greater than 5.5 billion.
+row_count = dow.shape[0]
+x = range(0, row_count)
+plot(x, dow[:, ADJ_CLOSE])
+plot(indices, dow[:, ADJ_CLOSE][indices], "ro")
+show()
