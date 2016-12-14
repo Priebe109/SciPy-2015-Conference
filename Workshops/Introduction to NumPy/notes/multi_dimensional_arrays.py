@@ -28,3 +28,21 @@ upper = b[:-2, 1:-1]
 center = b[1:-1, 1:-1]
 b[1:-1, 1:-1] = (center + upper) / 2
 print(b)
+
+# fancy indexing / fancy slicing
+x = numpy.arange(0, 80, 10)
+indices = [1, 2, -3]
+print(x[indices])
+
+# indexing with booleans
+mask = x >= 50
+print(x[mask])
+mask = (x >= 10) & (x <= 50)
+print(x[mask])
+
+# reading diagonals
+print(b.diagonal())
+
+# getting indices by condition
+indices = numpy.where(mask)[0]
+print(indices)
